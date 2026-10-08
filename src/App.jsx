@@ -1,0 +1,19 @@
+import { useState } from 'react'
+import StartScreen from './components/StartScreen'
+import ScanScreen from './components/ScanScreen'
+
+function App() {
+  const [estado, setEstado] = useState('READY')
+
+  return (
+    <div>
+      {estado === 'READY' && (
+        <StartScreen onStart={() => setEstado('SCANNING')} />
+      )}
+
+     {estado === 'SCANNING' && <ScanScreen />}
+    </div>
+  )
+}
+
+export default App
