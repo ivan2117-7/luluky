@@ -11,7 +11,10 @@ function App() {
         <StartScreen onStart={() => setEstado('SCANNING')} />
       )}
 
-     {estado === 'SCANNING' && <ScanScreen />}
+      {estado === 'SCANNING' && (
+        <ScanScreen onComplete={() => setEstado('ANALYZING')} />
+      )}
+        {estado === 'ANALYZING' && <h1>ANALYZING</h1>}
     </div>
   )
 }
