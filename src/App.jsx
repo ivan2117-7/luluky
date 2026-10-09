@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import StartScreen from './components/StartScreen'
 import ScanScreen from './components/ScanScreen'
+import AnalyzeScreen from './components/AnalyzeScreen'
+import StatsScreen from './components/StatsScreen'
+
 
 function App() {
   const [estado, setEstado] = useState('READY')
@@ -14,7 +17,11 @@ function App() {
       {estado === 'SCANNING' && (
         <ScanScreen onComplete={() => setEstado('ANALYZING')} />
       )}
-        {estado === 'ANALYZING' && <h1>ANALYZING</h1>}
+       {estado === 'ANALYZING' && (
+        <AnalyzeScreen onComplete={() => setEstado('SHOWING_STATS')} />
+      )}
+
+       {estado === 'SHOWING_STATS' && <StatsScreen />}
     </div>
   )
 }

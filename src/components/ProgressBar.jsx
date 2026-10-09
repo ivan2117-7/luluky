@@ -3,7 +3,7 @@ function ProgressBar({ valor }) {
   const llenos = Math.round((valor / 100) * total)
   const barra = '█'.repeat(llenos) + '░'.repeat(total - llenos)
 
-  return <p>{barra} {valor}%</p>
+  return <span>{barra} {valor}%</span>
 }
 
 export default ProgressBar
