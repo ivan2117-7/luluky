@@ -3,6 +3,7 @@ import StartScreen from './components/StartScreen'
 import ScanScreen from './components/ScanScreen'
 import AnalyzeScreen from './components/AnalyzeScreen'
 import StatsScreen from './components/StatsScreen'
+import ResultScreen from './components/ResultScreen'
 
 
 function App() {
@@ -21,7 +22,13 @@ function App() {
         <AnalyzeScreen onComplete={() => setEstado('SHOWING_STATS')} />
       )}
 
-       {estado === 'SHOWING_STATS' && <StatsScreen />}
+       {estado === 'SHOWING_STATS' && (
+        <StatsScreen onComplete={() => setEstado('RESULT')} />
+      )}
+
+      {estado === 'RESULT' && (
+        <ResultScreen onRestart={() => setEstado('READY')} />
+      )}
     </div>
   )
 }
